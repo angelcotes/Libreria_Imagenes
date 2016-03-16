@@ -1,4 +1,4 @@
-package angelcotes.libreria_image;
+package angelcotes.imagelibrary;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package angelcotes.libreria_image;
+package angelcotes.imagelibrary;
 
 import org.junit.Test;
 
