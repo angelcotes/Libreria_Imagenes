@@ -15,12 +15,14 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import java.io.File;
+
 import javax.security.auth.callback.Callback;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private int index = 1;
+    private int index = 0;
     private int degree = 0;
     private String imageTemp;
     private CharSequence[] imagesWEb = {"http://www.gettyimages.ca/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg","http://descargararesparaandroid.com/wp-content/uploads/2013/10/musica-para-android.jpg", "https://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg", "http://images.panda.org/assets/images/pages/welcome/orangutan_1600x1000_279157.jpg"};
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int pick) {
                 switch (pick){
                     case 0:
+                        degree = 0;
                         imageTemp = imagesWEb[index].toString();
                         picasso.load(imagesWEb[index].toString()).into(imageView, new com.squareup.picasso.Callback() {
                             @Override
@@ -78,12 +81,13 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         });
-                        if (index + 1 > imagesWEb.length)
-                            index = 1;
+                        if (index + 1 >= imagesWEb.length)
+                            index = 0;
                         else
                             index++;
                         break;
                     case 1:
+                        degree = 0;
                         picasso.load(imageTemp).resize(imageView.getWidth(),imageView.getHeight()).into(imageView, new com.squareup.picasso.Callback(){
 
                             @Override
@@ -134,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         });
+                        break;
+                    case 4:
+
                         break;
                     default:
                         dialog.dismiss();
